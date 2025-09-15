@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Таймер до конца рабочего дня</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #fde2e4, #fad2e1);
+      color: #5e2a47;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .timer {
+      font-size: 3rem;
+      font-weight: bold;
+      background: #fff0f6;
+      border: 2px solid #f7cad0;
+      border-radius: 20px;
+      padding: 20px 40px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>До конца рабочего дня осталось:</h1>
+  <div class="timer" id="timer">--:--:--</div>
+
+  <script>
+    function updateTimer() {
+      const now = new Date();
+      const end = new Date();
+      end.setHours(18, 0, 0, 0); // 18:00 сегодня
+
+      if (now > end) {
+        document.getElementById("timer").textContent = "Рабочий день окончен 🎉";
+        return;
+      }
+
+      const diff = end - now;
+      const hours = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, "0");
+      const minutes = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, "0");
+      const seconds = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, "0");
+
+      document.getElementById("timer").textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+</html>
