@@ -6,29 +6,35 @@
   <title>Timer until the end of the workday:</title>
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, #fde2e4, #fad2e1);
-      color: #5e2a47;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-    .timer {
-      font-size: 3rem;
-      font-weight: bold;
-      background: #fff0f6;
-      border: 2px solid #f7cad0;
-      border-radius: 20px;
-      padding: 20px 40px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #fde2e4, #fad2e1);
+  color: #5e2a47;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  /* центрирует по горизонтали */
+  text-align: center;   /* выравнивает текст */
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;     /* уберёт полосы прокрутки */
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.timer {
+  font-size: 3rem;
+  font-weight: bold;
+  background: #fff0f6;
+  border: 2px solid #f7cad0;
+  border-radius: 20px;
+  padding: 20px 40px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  text-align: center;   /* центрируем цифры внутри блока */
+}
+
   </style>
 </head>
 <body>
